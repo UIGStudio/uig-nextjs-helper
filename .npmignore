@@ -1,0 +1,11 @@
+node_modules
+src
+/.eslintrc.js
+/.prettierignore
+/.prettierrc.js
+/tsconfig.json
+/yarn.lock
+.idea/
+tsconfig.tsbuildinfo
+*.spec.js
+*.spec.d.ts
