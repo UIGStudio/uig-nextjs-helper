@@ -1,6 +1,6 @@
 {
     "name": "@uigstudio/uig-nextjs-helper",
-    "version": "0.0.8",
+    "version": "0.0.10",
     "repository": "https://github.com/UIGStudio/uig-nextjs-helper",
     "author": "Łukasz Micał <lucas@uigstudio.com>",
     "license": "MIT",

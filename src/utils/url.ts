@@ -5,7 +5,7 @@ import {SeoList} from '../types/api';
 import {PREVIEW_ID_PREFIX} from './consts';
 
 export type QueryParamsType = Record<string,
-    string | boolean | Date | number | undefined>;
+    string | boolean | Date | number | undefined | null>;
 
 export const createUrl = (baseUrl: string | undefined, path: string) => {
     if (/https?:/.test(path)) {
@@ -47,10 +47,10 @@ export const slugToData = (
     blockList?: string[],
 ) => {
     let slug = `${ctx.params?.slug}`;
-    if ((Boolean(slug) && !defaultSlug) || (blockList || []).includes(`${slug}`)) {
+    if ((!Boolean(slug) && !defaultSlug) || (blockList || []).includes(`${slug}`)) {
         return undefined;
     }
-    if (Boolean(slug) && defaultSlug) {
+    if (!Boolean(slug) && defaultSlug) {
         slug = `${defaultSlug}`;
     }
 

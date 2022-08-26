@@ -1,6 +1,6 @@
 import {useRef, useState} from 'react';
 
-export default function useRefState<T>(
+export function useRefState<T>(
     initValue: T,
 ): [T, {current: T}, (val: T) => void] {
     const valueRef = useRef<T>(initValue);
