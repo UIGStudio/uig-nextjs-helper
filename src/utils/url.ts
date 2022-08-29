@@ -26,7 +26,7 @@ export const resolveUrl = (
     const url = new URL(createUrl(baseUrl, bindUrlParams(path, bindParams)));
     if (queryParams) {
         Object.entries(queryParams).forEach(([name, value]) => {
-            if (value !== undefined) {
+            if (value !== undefined && value !== null) {
                 url.searchParams.append(name, value.toString());
             }
         });
@@ -47,10 +47,10 @@ export const slugToData = (
     blockList?: string[],
 ) => {
     let slug = `${ctx.params?.slug}`;
-    if ((!Boolean(slug) && !defaultSlug) || (blockList || []).includes(`${slug}`)) {
+    if ((!ctx.params?.slug && !defaultSlug) || (blockList || []).includes(slug)) {
         return undefined;
     }
-    if (!Boolean(slug) && defaultSlug) {
+    if (!ctx.params?.slug && defaultSlug) {
         slug = `${defaultSlug}`;
     }
 

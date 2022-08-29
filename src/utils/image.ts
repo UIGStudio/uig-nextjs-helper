@@ -1,3 +1,5 @@
+import {createUrl} from "./url";
+
 export type ImageDataType = {
     src: string;
     alt: string;
@@ -20,7 +22,7 @@ export const imageProps = (
     const attributes = image?.data?.attributes || image?.attributes;
     const src: string = attributes?.url || '';
     return {
-        src: src.startsWith('http') ? src : `${process.env.STRAPI_URL}/${src}`,
+        src: src.startsWith('http') ? src : createUrl(process.env.NEXT_PUBLIC_MEDIA_URL, src),
         alt: attributes?.alternativeText || '',
     };
 };
