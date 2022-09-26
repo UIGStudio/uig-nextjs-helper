@@ -6,7 +6,8 @@
         "outDir": "./dist",
         "skipDefaultLibCheck": true,
         "skipLibCheck": true,
-        "strict": true
+        "strict": true,
+        "jsx": "react"
     },
     "include": ["src"],
     "exclude": ["node_modules", "**/__tests__/*"]
